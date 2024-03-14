@@ -1,6 +1,6 @@
-# Cloudflare hook for `dehydrated`
+# CloudFlare hook for `dehydrated`
 
-This is a hook for the [Let's Encrypt](https://letsencrypt.org/) ACME client [dehydrated](https://github.com/lukas2511/dehydrated) that allows you to use [Cloudflare](https://www.Cloudflare.com/) DNS records to respond to `dns-01` challenges. This script requires Python and as well as your Cloudflare account e-mail and API key (as environment variables).
+This is a hook for the [Let's Encrypt](https://letsencrypt.org/) ACME client [dehydrated](https://github.com/lukas2511/dehydrated) that allows you to use [CloudFlare](https://www.cloudflare.com/) DNS records to respond to `dns-01` challenges. This script requires Python and as well as your CloudFlare account e-mail and API key (as environment variables).
 
 ## WSL, Ubuntu, and potentially Debian prerequisites
 You may need to install the following two packages in addition to Python 3 if you run into issues during the Installation:
@@ -17,18 +17,18 @@ $ cd ~
 $ git clone https://github.com/lukas2511/dehydrated
 $ cd dehydrated
 $ mkdir hooks
-$ git clone https://github.com/BuntinJP/letsencrypt-Cloudflare-hook hooks/Cloudflare
+$ git clone https://github.com/BuntinJP/letsencrypt-cloudflare-hook hooks/cloudflare
 ```
 
 Using Python 3:
 ```
-$ pip3 install -r hooks/Cloudflare/requirements.txt
+$ pip3 install -r hooks/cloudflare/requirements.txt
 ```
 
 
 ### Configuration
 
-Your account's Cloudflare email and API key are expected to be in the environment, so make sure to:
+Your account's CloudFlare email and API key are expected to be in the environment, so make sure to:
 
 ```
 $ export CF_EMAIL='user@example.com'
@@ -73,7 +73,7 @@ echo "export CF_DEBUG=true" >> config
 ### Usage
 
 ```
-$ ./dehydrated -c -d example.com -t dns-01 -k 'hooks/Cloudflare/hook.py'
+$ ./dehydrated -c -d example.com -t dns-01 -k 'hooks/cloudflare/hook.py'
 #
 # !! WARNING !! No main config file found, using default config!
 #
@@ -83,17 +83,17 @@ Processing example.com
  + Generating private key...
  + Generating signing request...
  + Requesting challenge for example.com...
- + Cloudflare hook executing: deploy_challenge
+ + CloudFlare hook executing: deploy_challenge
  + DNS not propagated, waiting 30s...
  + DNS not propagated, waiting 30s...
  + Responding to challenge for example.com...
- + Cloudflare hook executing: clean_challenge
+ + CloudFlare hook executing: clean_challenge
  + Challenge is valid!
  + Requesting certificate...
  + Checking certificate...
  + Done!
  + Creating fullchain.pem...
- + Cloudflare hook executing: deploy_cert
+ + CloudFlare hook executing: deploy_cert
  + ssl_certificate: /home/user/dehydrated/certs/example.com/fullchain.pem
  + ssl_certificate_key: /home/user/dehydrated/certs/example.com/privkey.pem
  + Done!
@@ -110,7 +110,7 @@ $ cd cert_workspace
 $ git clone https://github.com/lukas2511/dehydrated
 $ cd dehydrated
 $ mkdir hooks
-$ git clone https://github.com/BuntinJP/letsencrypt-Cloudflare-hook hooks/Cloudflare
+$ git clone https://github.com/BuntinJP/letsencrypt-cloudflare-hook hooks/cloudflare
 $ python3 -m venv dehydrated_env
 ```
 
@@ -119,7 +119,7 @@ Activate the virtual env and install dependencies:
 
 ```
 source dehydrated_env/bin/activate 
-$ (dehydrated_env) pip3 install -r hooks/Cloudflare/requirements.txt
+$ (dehydrated_env) pip3 install -r hooks/cloudflare/requirements.txt
 ```
 
 ### Usage with a bash script
@@ -135,7 +135,7 @@ export DOMAIN='my.domain.com'
 export CF_DNS_SERVERS='8.8.8.8 8.8.4.4'
 # export CF_DEBUG='true'
 
-dehydrated/dehydrated -c -d $DOMAIN  -t dns-01 -k 'dehydrated/hooks/Cloudflare/hook.py'
+dehydrated/dehydrated -c -d $DOMAIN  -t dns-01 -k 'dehydrated/hooks/cloudflare/hook.py'
 
 cp dehydrated/certs/$DOMAIN/privkey.pem $DOMAIN.letsencrypt.key
 cp dehydrated/certs/$DOMAIN/fullchain.pem $DOMAIN.letsencrypt.crt
@@ -167,10 +167,10 @@ If you want to update the scripts to the latest version (i.e. because Python, Le
 ```
 $ cd ~/cert_workspace/dehydrated
 $ git pull
-$ cd hooks/Cloudflare
+$ cd hooks/cloudflare
 $ git pull
 $ source dehydrated_env/bin/activate
-$ (dehydrated_env) pip3 install -r hooks/Cloudflare/requirements.txt
+$ (dehydrated_env) pip3 install -r hooks/cloudflare/requirements.txt
 ```
 
 and then re-generate your certifcate as before:
@@ -185,10 +185,10 @@ $ (dehydrated_env) ./domaincert.sh
 If you are making changes to the code, run the unit tests with `tox` to make sure your changes aren't breaking the hook.
 
 ```
-$ (dehydrated_env) cd hooks/Cloudflare
+$ (dehydrated_env) cd hooks/cloudflare
 $ (dehydrated_env) pip install tox
 $ (dehydrated_env) tox
 ```
 
 ## Further reading
-If you want some prose to go with the code, check out the relevant blog post here: [From StartSSL to Let's Encrypt, using Cloudflare DNS](http://kappataumu.com/articles/letsencrypt-Cloudflare-dns-01-hook.html).
+If you want some prose to go with the code, check out the relevant blog post here: [From StartSSL to Let's Encrypt, using CloudFlare DNS](http://kappataumu.com/articles/letsencrypt-cloudflare-dns-01-hook.html).
