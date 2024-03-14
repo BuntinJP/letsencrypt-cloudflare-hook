@@ -1,6 +1,6 @@
-# CloudFlare hook for `dehydrated`
+# Cloudflare hook for `dehydrated`
 
-This is a hook for the [Let's Encrypt](https://letsencrypt.org/) ACME client [dehydrated](https://github.com/lukas2511/dehydrated) that allows you to use [CloudFlare](https://www.cloudflare.com/) DNS records to respond to `dns-01` challenges. This script requires Python and as well as your CloudFlare account e-mail and API key (as environment variables).
+This is a hook for the [Let's Encrypt](https://letsencrypt.org/) ACME client [dehydrated](https://github.com/lukas2511/dehydrated) that allows you to use [Cloudflare](https://www.cloudflare.com/) DNS records to respond to `dns-01` challenges. This script requires Python and as well as your Cloudflare account e-mail and API key (as environment variables).
 
 ## WSL, Ubuntu, and potentially Debian prerequisites
 You may need to install the following two packages in addition to Python 3 if you run into issues during the Installation:
@@ -28,7 +28,7 @@ $ pip3 install -r hooks/cloudflare/requirements.txt
 
 ### Configuration
 
-Your account's CloudFlare email and API key are expected to be in the environment, so make sure to:
+Your account's Cloudflare email and API key are expected to be in the environment, so make sure to:
 
 ```
 $ export CF_EMAIL='user@example.com'
@@ -83,17 +83,17 @@ Processing example.com
  + Generating private key...
  + Generating signing request...
  + Requesting challenge for example.com...
- + CloudFlare hook executing: deploy_challenge
+ + Cloudflare hook executing: deploy_challenge
  + DNS not propagated, waiting 30s...
  + DNS not propagated, waiting 30s...
  + Responding to challenge for example.com...
- + CloudFlare hook executing: clean_challenge
+ + Cloudflare hook executing: clean_challenge
  + Challenge is valid!
  + Requesting certificate...
  + Checking certificate...
  + Done!
  + Creating fullchain.pem...
- + CloudFlare hook executing: deploy_cert
+ + Cloudflare hook executing: deploy_cert
  + ssl_certificate: /home/user/dehydrated/certs/example.com/fullchain.pem
  + ssl_certificate_key: /home/user/dehydrated/certs/example.com/privkey.pem
  + Done!
@@ -191,4 +191,4 @@ $ (dehydrated_env) tox
 ```
 
 ## Further reading
-If you want some prose to go with the code, check out the relevant blog post here: [From StartSSL to Let's Encrypt, using CloudFlare DNS](http://kappataumu.com/articles/letsencrypt-cloudflare-dns-01-hook.html).
+If you want some prose to go with the code, check out the relevant blog post here: [From StartSSL to Let's Encrypt, using Cloudflare DNS](http://kappataumu.com/articles/letsencrypt-cloudflare-dns-01-hook.html).
