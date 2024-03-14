@@ -17,7 +17,7 @@ $ cd ~
 $ git clone https://github.com/lukas2511/dehydrated
 $ cd dehydrated
 $ mkdir hooks
-$ git clone https://github.com/SeattleDevs/letsencrypt-cloudflare-hook hooks/cloudflare
+$ git clone https://github.com/BuntinJP/letsencrypt-cloudflare-hook hooks/cloudflare
 ```
 
 Using Python 3:
@@ -110,7 +110,7 @@ $ cd cert_workspace
 $ git clone https://github.com/lukas2511/dehydrated
 $ cd dehydrated
 $ mkdir hooks
-$ git clone https://github.com/SeattleDevs/letsencrypt-cloudflare-hook hooks/cloudflare
+$ git clone https://github.com/BuntinJP/letsencrypt-cloudflare-hook hooks/cloudflare
 $ python3 -m venv dehydrated_env
 ```
 
